@@ -51,3 +51,20 @@ double get_max_east()
     in_file.close();
     return max_storage;
 }
+
+std::string compare_basins(std::string d)
+{
+    
+    std::ifstream in_file("Current_Reservoir_Levels.tsv");
+    std::string date;
+    double eastSt, eastEl, westSt, westEl;
+    in_file.ignore(INT_MAX, '\n'); 
+    while (in_file >> date >> eastSt >> eastEl >> westSt >> westEl) 
+    { 
+        if (date == d)
+            break;
+        in_file.ignore(INT_MAX, '\n'); 
+    }
+    in_file.close();
+    return eastEl > westEl ? "East" : "West";
+}
