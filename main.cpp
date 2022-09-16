@@ -1,5 +1,6 @@
 #include <iostream>
 #include "reservoir.h"
+#include "reverseorder.h"
 
 int main()
 {
@@ -11,5 +12,6 @@ int main()
         std::string date = "09/" + std::to_string(i) + "/2018";
         std::cout << date << ' ' << compare_basins(date) << "\n";
     }   
+    reverse_order("05/29/2018", "06/02/2018");
     return 0;
 }
